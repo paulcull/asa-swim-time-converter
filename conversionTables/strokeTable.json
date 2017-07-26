@@ -1,0 +1,19 @@
+{
+  "50 Free": { "PoolMeasure":0.91147, "TurnFactor":42.245},
+  "100 Free": { "PoolMeasure":0.91087, "TurnFactor":42.245},
+  "200 Free": { "PoolMeasure":0.91157, "TurnFactor":43.786},
+  "400 Free": { "PoolMeasure":0.91197, "TurnFactor":44.233},
+  "800 Free": { "PoolMeasure":0.91217, "TurnFactor":45.525},
+  "1500 Free": { "PoolMeasure":1.004155, "TurnFactor":46.221},
+  "50 Breast": { "PoolMeasure":0.91147, "TurnFactor":63.616},
+  "100 Breast": { "PoolMeasure":0.90895, "TurnFactor":63.616},
+  "200 Breast": { "PoolMeasure":0.91097, "TurnFactor":66.598},
+  "50 Fly": { "PoolMeasure":0.91147, "TurnFactor":38.269},
+  "100 Fly": { "PoolMeasure":0.91097, "TurnFactor":38.269},
+  "200 Fly": { "PoolMeasure":0.91177, "TurnFactor":39.76},
+  "50 Back": { "PoolMeasure":0.91147, "TurnFactor":40.5},
+  "100 Back": { "PoolMeasure":0.91187, "TurnFactor":40.5},
+  "200 Back": { "PoolMeasure":0.91247, "TurnFactor":41.98},
+  "200 IM": { "PoolMeasure":0.90443, "TurnFactor":49.7},
+  "400 IM": { "PoolMeasure":0.91046, "TurnFactor":55.366}
+}

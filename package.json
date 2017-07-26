@@ -1,0 +1,27 @@
+{
+  "name": "asa-swim-time-converter",
+  "version": "0.0.1",
+  "description": "Convert swim times using ASA tables",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "keywords": [
+    "ASA",
+    "Swim",
+    "Swimming",
+    "Time",
+    "Coversion",
+    "Gala",
+    "Long",
+    "Course",
+    "Short",
+    "LC",
+    "SC"
+  ],
+  "author": "Paul Cullender",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.18.1"
+  }
+}
