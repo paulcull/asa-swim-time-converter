@@ -51,7 +51,7 @@ it('ConvertTo invalid', function() {
     return gtPromise.should.eventually.be.rejectedWith(errmsg);
 });
 
-// Positive Test
+// Positive Test - From 50
 // getTime(stroke, convertFrom, convertTo, timing)
 it('Correctly converts from seconds - 100 Back from 50M to 25M', function() {
     //define some data to compare against
