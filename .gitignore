@@ -46,5 +46,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Project specific
 node_modules/
 ~$tables.xlsx
