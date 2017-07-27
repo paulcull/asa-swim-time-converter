@@ -1,9 +1,14 @@
 // let inspect = require('eyes').inspector({maxLength: false})
 // let _ = require('underscore');
-var moment = require('moment');
+// var moment = require('moment');
 var strokes = require('./conversionTables/strokeTable');
 var pools = require('./conversionTables/poolTable');
-require("moment-duration-format");
+// require("moment-duration-format");
+
+// const timingFormatA = 'mm:ss.SS';
+// const timingFormatB = 'ss.SS';
+const timeFormatRegex = new RegExp("^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
+const numPlaces = 1;
 
 //based on formula documented
 // https://www.swimmingresults.org/downloads/equivalent-time-share/algorithm.php
@@ -32,13 +37,38 @@ function getTime(stroke, convertFrom, convertTo, timing) {
 
         var poolTable = {};
         var strokeTable = {};
+        var timingInSeconds = 0;
 
         //check stroke is a known one
         if (!strokes[stroke]) {
             reject("ERR: Unrecognised Stroke");
         } else {
             strokeTable = strokes[stroke];
-            console.log('Read stroke table: ', strokeTable);
+            //console.log('Read stroke table: ', strokeTable);
+        }
+
+        //check that time doesn't contain any odd stuff
+        if (!timing.match(/[0-9,:,.]/i)) {
+          reject("ERR: Not a Valid Time 1");
+        }
+        if ((timing.match(/:/g) || []).length >1) {
+          reject("ERR: Not a Valid Time 2");
+        }
+        if ((timing.match(/\./g) || []).length >1) {
+          reject("ERR: Not a Valid Time 3");
+        }
+        //handle times - convert to seconds, if not already
+        try {
+          //check if minutes separator exists
+          if (timing.indexOf(':') > 0) {
+            var _parts = timing.split(":");
+            //assumes no times in hours
+            timingInSeconds = (parseFloat(_parts[0]) * 60)+(parseFloat(_parts[1]));
+          } else {
+            timingInSeconds = parseFloat(timing);
+          }
+        } catch (err) {
+          reject("ERR: Incorrect Time Conversion Error: " + err);
         }
 
         //check fromPoolLength is a known one
@@ -46,32 +76,75 @@ function getTime(stroke, convertFrom, convertTo, timing) {
             reject("ERR: Unrecognised Pool Length : From");
         } else {
             poolTable = pools[convertFrom];
-            console.log('Read pool table: ', poolTable);
+            //console.log('Read pool table: ', poolTable);
         }
         if (!pools[convertTo]) {
             reject("ERR: Unrecognised Pool Length : To");
         }
 
-
         // start compiling the inputs to the calc
+        try {
 
-        var PoolLength = poolTable.poolMeasureCase;
-        var NumTurnPH = poolTable.numTurnPerHundred;
-        var strokeLength = strokeTable.distance;
-        var swimSeconds = moment.duration(timing).asSeconds();
+          var PoolMeasure = poolTable.poolMeasureCase;
+          console.log(" - PoolMeasure     :", PoolMeasure);
+          var NumTurnPH = poolTable.numTurnPerHundred;
+          console.log(" - NumTurnPH       :", NumTurnPH);
+          var Distance = strokeTable.distance;
+          console.log(" - Distance        :", Distance);
+          var D1 = Distance;
+          console.log(" - timingInSeconds :", timingInSeconds);
+          //special case for 1500 in short pools
+          if (Distance === 1500 && poolTable.poolMeasureCase === 3) {
+            D1 = 1650;
+          }
+          console.log(" - D1             :", D1);
+          var NumbTurnFactor = Distance / 100 *(D1/100) * (NumTurnPH - 1);
+          console.log(" - NumbTurnFactor :", NumbTurnFactor);
+          var TurnFactor = strokeTable.TurnFactor;
+          console.log(" - TurnFactor     :", TurnFactor);
 
-        console.log(timing);
-        console.log(moment(timing, "mm:ss.SS").format('HH:mm:ss.SSS'));
-        console.log(moment(timing, "mm:ss.SS").as('seconds'));
-        console.log(moment(timing, "mm:ss.SS"));
+          //The first Step is to get the value for a 50m form
+          var T50 = 0;
+          if (convertFrom != "50m") {
+            T50 = (timingInSeconds +
+                          (
+                            (
+                              (timingInSeconds^2)+(PoolMeasure*TurnFactor*NumbTurnFactor)
+                            )^2)
+                          )/(2*PoolMeasure);
+          } else {
+            T50 = timingInSeconds;
+          }
+          console.log(" - T50            :", T50);
 
-        console.log(moment.duradtion(timing, 'mm:ss.SS').format('ss.SS'));
+          //The second step – 50m pool length to desired pool length – is expressed as:
+          //T50 * PoolMeasure – TurnVal * (NumTurnPH – 1)
+          // Where:
+          //
+          // T50 = Time in a 50m pool
+          // PoolMeasure = Event distance factor
+          // TurnVal = Time per turn – The time in seconds attributed to execution of a	single turn
+          // NumTurnPH = Number of turns per 100 in the required length pool.
+          // The Time per turn is determined by the relationship:
+          // TurnVal = TurnFactor / T50
+          // Where TurnFactor is provided by the LookUp table
 
-        console.log("^^^^^^^^^^^^", swimSeconds);
+          var convertTime = 0
 
+          var TurnVal = TurnFactor / T50;
+          console.log(" - TurnVal        :", TurnVal);
+          if (convertTo != "50m") {
+            convertTime = T50*1-TurnVal*2;
+          } else {
+            convertTime = T50;
+          }
 
-        convertTime = 0;
-        resolve(convertTime);
+          console.log(" - Result Time    :",convertTime);
+          resolve(convertTime.toFixed(numPlaces).toString());
+
+        } catch (err) {
+          reject("ERR: Conversion Error: " + err);
+        }
 
     });
 }
