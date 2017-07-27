@@ -1,17 +1,10 @@
-
 // let inspect = require('eyes').inspector({maxLength: false})
 // let _ = require('underscore');
-let moment = require('moment');
-let strokes = require('./conversionTables/strokeTable');
-let pools = require('./conversionTables/poolTable');
+var moment = require('moment');
+var strokes = require('./conversionTables/strokeTable');
+var pools = require('./conversionTables/poolTable');
+require("moment-duration-format");
 
-
-
-function getStroke(stroke) {
-  var result = strokes.filter(function( obj ) {
-    return obj[stroke] ;
-  });
-}
 //based on formula documented
 // https://www.swimmingresults.org/downloads/equivalent-time-share/algorithm.php
 
@@ -23,9 +16,9 @@ function getStroke(stroke) {
   getTime(convertFrom, convertTo, stroke, timing)
 
   inputs
+  @stroke = stroke as per the list
   @covertFrom = poolLength
   @convertTo = poolLength
-  @stroke = stroke as per the list
   @timing = time to convert from
 
   returns
@@ -33,30 +26,52 @@ function getStroke(stroke) {
 
   */
 
-function getTime(convertFrom, convertTo, stroke, timing) {
+function getTime(stroke, convertFrom, convertTo, timing) {
     return new Promise(function(resolve, reject) {
-      console.log("converting " + stroke + " @ " + timing + " from " + convertFrom + " to " +  convertTo);
-      console.log("~~~",strokes);
+        console.log("converting " + stroke + " @ " + timing + " from " + convertFrom + " to " + convertTo);
 
-      console.log(getStroke(stroke));
+        var poolTable = {};
+        var strokeTable = {};
 
-      console.log("---",strokes[stroke]);
-      //check stroke is a known one
-      if(!strokes[stroke]){
-        reject("ERR: Unrecognised Stroke");
-      }
+        //check stroke is a known one
+        if (!strokes[stroke]) {
+            reject("ERR: Unrecognised Stroke");
+        } else {
+            strokeTable = strokes[stroke];
+            console.log('Read stroke table: ', strokeTable);
+        }
 
-      //check fromPoolLength is a known one
-      if(!pools[convertFrom]){
-        reject("ERR: Unrecognised Pool Length : From");
-      }
-      if(!pools[convertTo]){
-        reject("ERR: Unrecognised Pool Length : To");
-      }
+        //check fromPoolLength is a known one
+        if (!pools[convertFrom]) {
+            reject("ERR: Unrecognised Pool Length : From");
+        } else {
+            poolTable = pools[convertFrom];
+            console.log('Read pool table: ', poolTable);
+        }
+        if (!pools[convertTo]) {
+            reject("ERR: Unrecognised Pool Length : To");
+        }
 
 
+        // start compiling the inputs to the calc
 
-      resolve(convertTime);
+        var PoolLength = poolTable.poolMeasureCase;
+        var NumTurnPH = poolTable.numTurnPerHundred;
+        var strokeLength = strokeTable.distance;
+        var swimSeconds = moment.duration(timing).asSeconds();
+
+        console.log(timing);
+        console.log(moment(timing, "mm:ss.SS").format('HH:mm:ss.SSS'));
+        console.log(moment(timing, "mm:ss.SS").as('seconds'));
+        console.log(moment(timing, "mm:ss.SS"));
+
+        console.log(moment.duradtion(timing, 'mm:ss.SS').format('ss.SS'));
+
+        console.log("^^^^^^^^^^^^", swimSeconds);
+
+
+        convertTime = 0;
+        resolve(convertTime);
 
     });
 }
