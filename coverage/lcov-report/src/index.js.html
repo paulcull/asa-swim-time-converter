@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.91% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>60/66</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.71% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>24/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.91% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>60/66</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">99×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">var strokes = require('./conversionTables/strokeTable');
+var pools = require('./conversionTables/poolTable');
+&nbsp;
+var timeFormatRegex = new RegExp("^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
+var numPlaces = 1;
+&nbsp;
+var isDebugMode = false;
+&nbsp;
+&nbsp;
+//debug log support
+console.debug = function( /* ...args */ ) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (isDebugMode) {
+<span class="cstat-no" title="statement not covered" >        var vargs = Array.prototype.slice.call(arguments);</span>
+<span class="cstat-no" title="statement not covered" >        console.log.apply(this, vargs);</span>
+    }
+};
+&nbsp;
+//based on formula documented
+// https://www.swimmingresults.org/downloads/equivalent-time-share/algorithm.php
+&nbsp;
+&nbsp;
+// Exposed Function
+&nbsp;
+/*
+  getTime function to convert Swim times based on ASA table
+  getTime(convertFrom, convertTo, stroke, timing)
+&nbsp;
+  inputs
+  @stroke = stroke as per the list
+  @covertFrom = poolLength
+  @convertTo = poolLength
+  @timing = time to convert from
+&nbsp;
+  returns
+  time per target
+&nbsp;
+  */
+&nbsp;
+function getTime(stroke, convertFrom, convertTo, timing) {
+    return new Promise(function(resolve, reject) {
+        console.debug("converting " + stroke + " @ " + timing + " from " + convertFrom + " to " + convertTo);
+&nbsp;
+        var poolTable = {};
+        var strokeTable = {};
+        var timingInSeconds = 0;
+&nbsp;
+        //check stroke is a known one
+        if (!strokes[stroke]) {
+            reject("ERR: Unrecognised Stroke");
+        } else {
+            strokeTable = strokes[stroke];
+            //console.debug('Read stroke table: ', strokeTable);
+        }
+&nbsp;
+        //check that time doesn't contain any odd stuff
+        if (!timing.match(/[0-9,:,.]/i)) {
+            reject("ERR: Not a Valid Time 1");
+        }
+        if ((timing.match(/:/g) || []).length &gt; 1) {
+            reject("ERR: Not a Valid Time 2");
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if ((timing.match(/\./g) || []).length &gt; 1) {
+<span class="cstat-no" title="statement not covered" >            reject("ERR: Not a Valid Time 3");</span>
+        }
+        //handle times - convert to seconds, if not already
+        try {
+            //check if minutes separator exists
+            if (timing.indexOf(':') &gt; 0) {
+                var _parts = timing.split(":");
+                //assumes no times in hours
+                timingInSeconds = (parseFloat(_parts[0]) * 60) + (parseFloat(_parts[1]));
+            } else {
+                timingInSeconds = parseFloat(timing);
+            }
+        } catch (err) {
+<span class="cstat-no" title="statement not covered" >            reject("ERR: Incorrect Time Conversion Error: " + err);</span>
+        }
+&nbsp;
+        //check fromPoolLength is a known one
+        if (!pools[convertFrom]) {
+            reject("ERR: Unrecognised Pool Length : From");
+        } else {
+            poolTable = pools[convertFrom];
+            //console.debug('Read pool table: ', poolTable);
+        }
+        if (!pools[convertTo]) {
+            reject("ERR: Unrecognised Pool Length : To");
+        }
+&nbsp;
+        // start compiling the inputs to the calc
+        try {
+&nbsp;
+            var PoolMeasure = poolTable.poolMeasureCase;
+            console.debug(" - PoolMeasure     :", PoolMeasure);
+            var NumTurnPH = poolTable.numTurnPerHundred;
+            console.debug(" - NumTurnPH       :", NumTurnPH);
+            var Distance = strokeTable.distance;
+            console.debug(" - Distance        :", Distance);
+            var D1 = Distance;
+            console.debug(" - timingInSeconds :", timingInSeconds);
+            //special case for 1500 in short pools
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (Distance === 1500 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >poolTable.poolMeasureCase === 3)</span> {
+<span class="cstat-no" title="statement not covered" >                D1 = 1650;</span>
+            }
+            console.debug(" - D1             :", D1);
+            var NumbTurnFactor = Distance / 100 * (D1 / 100) * (NumTurnPH - 1);
+            console.debug(" - NumbTurnFactor :", NumbTurnFactor);
+            var TurnFactor = strokeTable.TurnFactor;
+            console.debug(" - TurnFactor     :", TurnFactor);
+&nbsp;
+            // The first Step is to get the value for a 50m form
+            // TimeTo50 = (swtime + Sqr(swtime * swtime + 4 * PoolMeasure * TurnFactor * NumbTurnFactor)) / (2 * PoolMeasure)
+            var T50 = 0;
+            if (convertFrom != "50m") {
+                T50 = (timingInSeconds +
+                    (Math.sqrt(timingInSeconds * timingInSeconds + 4 * PoolMeasure * TurnFactor * NumbTurnFactor))
+                ) / (2 * PoolMeasure);
+            } else {
+                T50 = timingInSeconds;
+            }
+            console.debug(" - T50            :", T50);
+&nbsp;
+            //The second step – 50m pool length to desired pool length – is expressed as:
+            //T50 * PoolMeasure – TurnVal * (NumTurnPH – 1)
+            // Where:
+            //
+            // T50 = Time in a 50m pool
+            // PoolMeasure = Event distance factor
+            // TurnVal = Time per turn – The time in seconds attributed to execution of a	single turn
+            // NumTurnPH = Number of turns per 100 in the required length pool.
+            // The Time per turn is determined by the relationship:
+            // TurnVal = TurnFactor / T50
+            // Where TurnFactor is provided by the LookUp table
+&nbsp;
+            var convertTime = 0;
+&nbsp;
+            var TurnVal = TurnFactor / T50;
+            console.debug(" - TurnVal        :", TurnVal);
+            if (convertTo != "50m") {
+                convertTime = T50 * 1 - TurnVal * 2;
+            } else {
+                convertTime = T50;
+            }
+&nbsp;
+            console.debug(" - Result Time    :", convertTime);
+            resolve(convertTime.toFixed(numPlaces).toString());
+&nbsp;
+        } catch (err) {
+<span class="cstat-no" title="statement not covered" >            reject("ERR: Conversion Error: " + err);</span>
+        }
+&nbsp;
+    });
+}
+&nbsp;
+module.exports = getTime;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jul 28 2017 12:07:15 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
