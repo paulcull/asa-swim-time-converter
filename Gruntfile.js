@@ -58,18 +58,18 @@ module.exports = function(grunt) {
                root: './src', // define where the cover task should consider the root of libraries that are covered by tests
                reportFormats: ['lcov']
            }
-      },
-      coveralls: {
-          src: ['test'], // multiple folders also works
-          options: {
-              coverage:true, // this will make the grunt.event.on('coverage') event listener to be triggered
-              check: {
-                  lines: 75,
-                  statements: 75
-              },
-              root: './src', // define where the cover task should consider the root of libraries that are covered by tests
-              reportFormats: ['lcov']
-          }
+      // },
+      // coveralls: {
+      //     src: ['test'], // multiple folders also works
+      //     options: {
+      //         coverage:true, // this will make the grunt.event.on('coverage') event listener to be triggered
+      //         check: {
+      //             lines: 75,
+      //             statements: 75
+      //         },
+      //         root: './src', // define where the cover task should consider the root of libraries that are covered by tests
+      //         reportFormats: ['lcov']
+      //     }
       }
     },
     istanbul_check_coverage: {
@@ -141,7 +141,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   //set the tasks / taskmaps
-  grunt.registerTask('reportCoveralls', ['clean:coverage','mocha_istanbul:coveralls']);
+  grunt.registerTask('reportCoveralls', ['clean:coverage','mocha_istanbul:coverage','coveralls']);
   grunt.registerTask('coverage', ['clean:coverage','mocha_istanbul:coverage']);
   grunt.registerTask('ci-build', ['clean:coverage','clean:dist','jshint:beforeconcat','mochaTest','reportCoveralls','concat','jshint:afterconcat','uglify','copy:conversionTables']);
   grunt.registerTask('build', ['clean:dist','jshint:beforeconcat','mochaTest','concat','jshint:afterconcat','uglify','copy:conversionTables']);
