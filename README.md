@@ -1,5 +1,7 @@
 # ASA Swim time converter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/paulcull/asa-swim-time-converter.svg)](https://greenkeeper.io/)
+
 This is a javascript implementation of the published and ASA approved Factor Table conversion method.
 
 ## Status
