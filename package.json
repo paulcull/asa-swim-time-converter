@@ -5,7 +5,9 @@
   "main": "./../src/index.js",
   "repository": "https://github.com/paulcull/asa-swim-time-converter",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "keywords": [
     "ASA",
@@ -26,13 +28,19 @@
   "devDependencies": {
     "chai": "^4.1.0",
     "chai-as-promised": "^7.1.1",
+    "coveralls": "^2.13.1",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-uglify": "^3.0.1",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-coveralls": "^1.0.1",
+    "grunt-mocha-istanbul": "^5.0.2",
     "grunt-mocha-test": "^0.13.2",
-    "mocha": "^3.4.2"
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "mocha-lcov-reporter": "^1.3.0"
   }
 }

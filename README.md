@@ -7,7 +7,7 @@ This is a javascript implementation of the published and ASA approved Factor Tab
 [![Coverage Status](https://coveralls.io/repos/github/paulcull/asa-swim-time-converter/badge.svg?branch=master)](https://coveralls.io/github/paulcull/asa-swim-time-converter?branch=master)
 [![Greenkeeper badge](https://badges.greenkeeper.io/paulcull/asa-swim-time-converter.svg)](https://greenkeeper.io/)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 
 
 ## Getting Started
@@ -121,7 +121,7 @@ These are things that should be done to complete.
  - [X] Setup travis-ci
  - [X] Add grunt to manage a min step and create a smaller footprint library
  - [X] Introduce dependency monitoring
- - [ ] Publish to npm.org 
+ - [ ] Publish to npm.org
 
 ## Versioning
 

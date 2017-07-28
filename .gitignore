@@ -48,4 +48,6 @@ Temporary Items
 
 # Project specific
 node_modules/
-~$tables.xlsx
+*.xlsx
+build/
+coverage/
