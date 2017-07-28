@@ -29,6 +29,7 @@ git clone https://github.com/paulcull/asa-swim-time-converter
 ```
 
 This library uses promises. The function when called returns a promise, allowing you to get on with anything else that you need to.
+There are no runtime 3rd party dependencies in this library.
 
 ```
 var getTime = require('asa-swim-time-converter');
@@ -37,7 +38,7 @@ getTime("50 Free", "25m", "50m", "31.0").then(function(newTime){
     console.log(newTime);
 })
 ```
-*Also check the tests and example 
+ - Also check the tests and example
 
 
 Supported Converstion distances
@@ -96,13 +97,26 @@ Not designed to run stand-alone - this should be used as a libray.
 * [MOCHA](https://www.mochajs.org/) - Test management
 * [CHAI](http://chaijs.com/) - BDD / TDD assertion (including with [PROMISES](https://github.com/domenic/chai-as-promised))
 
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
+## TODO
+
+These are things that should be done to complete.
+
+ - [X] Reduce / remove external dependancies
+ - [X] Add project documentation
+ - [X] Add simple example
+ - [ ] Extend test cases to all strokes / pool lengths
+ - [ ] Setup travis-ci
+ - [ ] Add grunt to manage a min step and create a smaller footprint library
+ - [ ] Introduce dependency monitoring
+
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/paulcull/asa-swimtime-converter/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/paulcull/asa-swimtime-converter/tags).
 
 ## Authors
 
@@ -116,5 +130,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* The excellant documentation on the method [here](https://www.swimmingresults.org/downloads/equivalent-time-share/algorithm.php) made this all possible
-
+* The excellent documentation on the method [here](https://www.swimmingresults.org/downloads/equivalent-time-share/algorithm.php) made this all possible
+* The very reusable git documents from [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
