@@ -118,9 +118,10 @@ These are things that should be done to complete.
  - [X] Add project documentation
  - [X] Add simple example
  - [ ] Extend test cases to all strokes / pool lengths
- - [ ] Setup travis-ci
- - [ ] Add grunt to manage a min step and create a smaller footprint library
- - [ ] Introduce dependency monitoring
+ - [X] Setup travis-ci
+ - [X] Add grunt to manage a min step and create a smaller footprint library
+ - [X] Introduce dependency monitoring
+ - [ ] Publish to npm.org 
 
 ## Versioning
 
