@@ -4,7 +4,9 @@ This is a javascript implementation of the published and ASA approved Factor Tab
 
 ## Status
 [![Build Status](https://travis-ci.org/paulcull/asa-swim-time-converter.svg?branch=master)](https://travis-ci.org/paulcull/asa-swim-time-converter)
+[![Coverage Status](https://coveralls.io/repos/github/paulcull/asa-swim-time-converter/badge.svg?branch=master)](https://coveralls.io/github/paulcull/asa-swim-time-converter?branch=master)
 [![Greenkeeper badge](https://badges.greenkeeper.io/paulcull/asa-swim-time-converter.svg)](https://greenkeeper.io/)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
 
 
 

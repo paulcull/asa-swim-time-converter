@@ -1,31 +1,38 @@
 {
-    "name": "asa-swim-time-converter",
-    "version": "0.0.1",
-    "description": "Convert swim times using ASA tables",
-    "main": "index.js",
-    "repository": "https://github.com/paulcull/asa-swim-time-converter",
-    "scripts": {
-        "test": "mocha ./tests/test.js"
-    },
-    "keywords": [
-        "ASA",
-        "Swim",
-        "Swimming",
-        "Time",
-        "Coversion",
-        "Gala",
-        "Long",
-        "Course",
-        "Short",
-        "LC",
-        "SC"
-    ],
-    "author": "Paul Cullender",
-    "license": "ISC",
-    "dependencies": {},
-    "devDependencies": {
-        "chai": "^4.1.0",
-        "chai-as-promised": "^7.1.1",
-        "mocha": "^3.4.2"
-    }
+  "name": "asa-swim-time-converter",
+  "version": "0.0.1",
+  "description": "Convert swim times using ASA tables",
+  "main": "./../src/index.js",
+  "repository": "https://github.com/paulcull/asa-swim-time-converter",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "ASA",
+    "Swim",
+    "Swimming",
+    "Time",
+    "Coversion",
+    "Gala",
+    "Long",
+    "Course",
+    "Short",
+    "LC",
+    "SC"
+  ],
+  "author": "Paul Cullender",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "chai-as-promised": "^7.1.1",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^3.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "mocha": "^3.4.2"
+  }
 }
