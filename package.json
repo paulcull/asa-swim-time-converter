@@ -6,8 +6,8 @@
   "repository": "https://github.com/paulcull/asa-swim-time-converter",
   "scripts": {
     "test": "grunt test",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "build": "grunt build",
+    "ci-build": "grunt ci-build"
   },
   "keywords": [
     "ASA",
