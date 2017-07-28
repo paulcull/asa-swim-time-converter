@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
       beforeconcat: ['Gruntfile.js', 'src/**/*.js', 'src/**/*.json', 'test/**/*.js'],
-      afterconcat: ['build/<%= pkg.name %>.js','build/<%= pkg.name %>.min.js']
+      afterconcat: ['build/<%= pkg.name %>.js']
     },
     watch: {
       files: ['<%= jshint.files %>'],
@@ -15,10 +15,10 @@ module.exports = function(grunt) {
         src: ['build']
       },
       dist: {
-        src: ['build','dist']
+        src: ['build','dist/**/*']
       },
       coverage: {
-        src: ['coverage']
+        src: ['coverage/**']
       }
     },
     concat: {
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
       },
       dist: {
         // the files to concatenate (exclue example)
-        src: ['src/**/*.js','!example.js'],
+        src: ['src/**/*.js','!src/conversionTables/*.js','!src/example.js'],
         // the location of the resulting JS file
         dest: 'build/<%= pkg.name %>.js'
       }
@@ -71,43 +71,56 @@ module.exports = function(grunt) {
               reportFormats: ['lcov']
           }
       }
-  },
-  istanbul_check_coverage: {
-    default: {
-      options: {
-        coverageFolder: 'coverage', // will check both coverage folders and merge the coverage results
-        check: {
-          lines: 80,
-          statements: 80
+    },
+    istanbul_check_coverage: {
+      default: {
+        options: {
+          coverageFolder: 'coverage', // will check both coverage folders and merge the coverage results
+          check: {
+            lines: 80,
+            statements: 80
+          }
         }
       }
-    }
-  },
-  coveralls: {
-    // Options relevant to all targets
-    options: {
-      // When true, grunt-coveralls will only print a warning rather than
-      // an error, to prevent CI builds from failing unnecessarily (e.g. if
-      // coveralls.io is down). Optional, defaults to false.
-      force: false
     },
-    your_target: {
-      // LCOV coverage file (can be string, glob or array)
-      src: 'coverage/*.info',
+    coveralls: {
+      // Options relevant to all targets
       options: {
-        // Any options for just this target
+        // When true, grunt-coveralls will only print a warning rather than
+        // an error, to prevent CI builds from failing unnecessarily (e.g. if
+        // coveralls.io is down). Optional, defaults to false.
+        force: false
+      },
+      your_target: {
+        // LCOV coverage file (can be string, glob or array)
+        src: 'coverage/*.info',
+        options: {
+          // Any options for just this target
+        }
+      },
+    },
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+      },
+      build: {
+        src: 'build/<%= pkg.name %>.js',
+        dest: 'dist/<%= pkg.name %>.min.js'
       }
     },
-  },
-  uglify: {
-  options: {
-    banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+    copy: {
+      conversionTables: {
+        expand: true,
+        cwd: 'src/conversionTables',
+        src: '*.js',
+        dest: 'dist/conversionTables',
+      },
     },
-    build: {
-      src: 'build/<%= pkg.name %>.js',
-      dest: 'dist/<%= pkg.name %>.min.js'
+    release: {
+      options: {
+        bump: 'false', //only from version is changed
+      }
     }
-  }
   });
 
   grunt.event.on('coverage', function(lcovFileContents, done){
@@ -115,6 +128,7 @@ module.exports = function(grunt) {
       done();
   });
 
+  //load the dependencies
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -123,13 +137,17 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-istanbul');
   grunt.loadNpmTasks('grunt-coveralls');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-release');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
+  //set the tasks / taskmaps
   grunt.registerTask('reportCoveralls', ['clean:coverage','mocha_istanbul:coveralls']);
   grunt.registerTask('coverage', ['clean:coverage','mocha_istanbul:coverage']);
-  grunt.registerTask('ci-build', ['clean:coverage','clean:dist','jshint','mochaTest','reportCoveralls','concat','uglify']);
-  grunt.registerTask('build', ['clean:dist','jshint','mochaTest','concat','uglify']);
+  grunt.registerTask('ci-build', ['clean:coverage','clean:dist','jshint:beforeconcat','mochaTest','reportCoveralls','concat','jshint:afterconcat','uglify','copy:conversionTables']);
+  grunt.registerTask('build', ['clean:dist','jshint:beforeconcat','mochaTest','concat','jshint:afterconcat','uglify','copy:conversionTables']);
   grunt.registerTask('test', ['clean:coverage','jshint','mochaTest','coverage']);
   grunt.registerTask('watch', ['watch']);
+  grunt.registerTask('releaseToNPM',['release']);
 
   grunt.registerTask('default', ['build']);
 

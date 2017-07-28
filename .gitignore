@@ -48,5 +48,5 @@ Temporary Items
 
 # Project specific
 node_modules/
-*.xlsx
+~*.xlsx
 build/
