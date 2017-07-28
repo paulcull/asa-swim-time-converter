@@ -2,6 +2,10 @@
 
 This is a javascript implementation of the published and ASA approved Factor Table conversion method.
 
+## Status
+[![Build Status](https://travis-ci.org/paulcull/asa-swim-time-converter.svg?branch=master)](https://travis-ci.org/paulcull/asa-swim-time-converter)
+
+
 ## Getting Started
 
 Include the library in your project. Pass the Stroke, Pool Length From / To and timing. The single function will return the convert time.
