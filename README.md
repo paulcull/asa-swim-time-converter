@@ -8,7 +8,8 @@ This is a javascript implementation of the published and ASA approved Factor Tab
 [![Greenkeeper badge](https://badges.greenkeeper.io/paulcull/asa-swim-time-converter.svg)](https://greenkeeper.io/)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
-
+[![NPM Version](https://img.shields.io/npm/v/asa-swim-time-converter.svg?style=flat)](https://www.npmjs.com/package/react-native-navigation)
+[![NPM Downloads](https://img.shields.io/npm/dm/asa-swim-time-converter.svg?style=flat)](https://www.npmjs.com/package/react-native-navigation)
 
 ## Getting Started
 
