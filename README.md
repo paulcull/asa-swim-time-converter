@@ -121,7 +121,7 @@ These are things that should be done to complete.
  - [X] Setup travis-ci
  - [X] Add grunt to manage a min step and create a smaller footprint library
  - [X] Introduce dependency monitoring
- - [ ] Publish to npm.org
+ - [X] Publish to npm.org
 
 ## Versioning
 
