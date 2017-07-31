@@ -29,10 +29,10 @@
      * https://www.swimmingresults.org/downloads/equivalent-time-share/algorithm.php
      *
      * inputs
-     * @param {string} stroke = stroke as per the list
-     * @param {string} covertFrom = poolLength
-     * @param {string} convertTo = poolLength
-     * @param {time}   timing = time to convert from
+     * @param {string} stroke is stroke as per the list.
+     * @param {string} covertFrom is poolLength.
+     * @param {string} convertTo is poolLength.
+     * @param {time}   timing is time to convert from.
      *
      * returns
      * @return {time}  time per target
