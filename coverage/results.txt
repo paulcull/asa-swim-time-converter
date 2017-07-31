@@ -1,14 +1,14 @@
 
 [0m[0m
-[32m  √[0m[90m Stroke invalid[0m
-[32m  √[0m[90m Time is invalid - String[0m
-[32m  √[0m[90m Time is invalid - Format[0m
-[32m  √[0m[90m ConvertFrom invalid[0m
-[32m  √[0m[90m ConvertTo invalid[0m
-[32m  √[0m[90m Correctly converts from seconds - 100 Back from 50M to 25M[0m
-[32m  √[0m[90m Correctly converts from minutes - 100 Back from 50M to 25M[0m
-[32m  √[0m[90m Correctly converts from seconds - 100 Back from 25M to 50M[0m
-[32m  √[0m[90m Correctly converts from seconds - 50 Free from 25M to 50M[0m
+[32m  ✓[0m[90m Stroke invalid[0m
+[32m  ✓[0m[90m Time is invalid - String[0m
+[32m  ✓[0m[90m Time is invalid - Format[0m
+[32m  ✓[0m[90m ConvertFrom invalid[0m
+[32m  ✓[0m[90m ConvertTo invalid[0m
+[32m  ✓[0m[90m Correctly converts from seconds - 100 Back from 50M to 25M[0m
+[32m  ✓[0m[90m Correctly converts from minutes - 100 Back from 50M to 25M[0m
+[32m  ✓[0m[90m Correctly converts from seconds - 100 Back from 25M to 50M[0m
+[32m  ✓[0m[90m Correctly converts from seconds - 50 Free from 25M to 50M[0m
 
-[92m [0m[32m 9 passing[0m[90m (29ms)[0m
+[92m [0m[32m 9 passing[0m[90m (14ms)[0m
 
