@@ -1,6 +1,6 @@
 {
     "name": "asa-swim-time-converter",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Convert swim times using ASA tables",
     "main": "index.js",
     "repository": "https://github.com/paulcull/asa-swim-time-converter",
