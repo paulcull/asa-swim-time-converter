@@ -1,6 +1,6 @@
 {
   "name": "asa-swim-time-converter",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Convert swim times using ASA tables",
   "main": "dist/asa-swim-time-converter",
   "repository": "https://github.com/paulcull/asa-swim-time-converter",
