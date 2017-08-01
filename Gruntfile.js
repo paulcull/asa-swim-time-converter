@@ -166,7 +166,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['clean:dist', 'jshint:beforeconcat', 'mochaTest', 'documentation', 'concat', 'jshint:afterconcat', 'uglify', 'copy:main', 'copy:conversionTables']);
     grunt.registerTask('test', ['clean:coverage', 'jshint', 'mochaTest', 'coverage']);
     grunt.registerTask('watch', ['watch']);
-    grunt.registerTask('releaseToNPM', ['release']);
+    grunt.registerTask('releaseToNPM', ['build', 'test', 'reportCoveralls', 'release']);
 
     grunt.registerTask('default', ['build']);
 
