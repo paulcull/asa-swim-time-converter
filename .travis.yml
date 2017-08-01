@@ -6,4 +6,3 @@ before_script:
 script: grunt ci-build
 after_success:
 - grunt reportCoveralls
-- grunt releaseToNPM
