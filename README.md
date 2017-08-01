@@ -37,11 +37,20 @@ npm install --save asa-swim-time-converter
 git clone https://github.com/paulcull/asa-swim-time-converter
 ```
 
-This library uses promises. The function when called returns a promise, allowing you to get on with anything else that you need to.
+This library uses supports promises as an option. The getTimePromise function when called returns a promise, allowing you to get on with anything else that you need to.
 There are no runtime 3rd party dependencies in this library.
 
+Method 1
 ```
-var getTime = require('asa-swim-time-converter');
+var getTime = require('asa-swim-time-converter').getTime;
+
+console.log(getTime("50 Free", "25m", "50m", "31.0"))
+```
+
+
+Method 2
+```
+var getTime = require('asa-swim-time-converter').getTimePromise;
 
 getTime("50 Free", "25m", "50m", "31.0").then(function(newTime){
     console.log(newTime);

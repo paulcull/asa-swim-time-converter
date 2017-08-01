@@ -70,9 +70,9 @@
     "yui": false,
     "globals": {},
     "predef": [
+        "require",
         "document",
         "window",
-        "Promise",
-        "require"
+        "Promise"
     ]
 }
