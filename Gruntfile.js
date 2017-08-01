@@ -115,6 +115,12 @@ module.exports = function(grunt) {
                 src: '*.js',
                 dest: 'dist/conversionTables',
             },
+            main: {
+                expand: true,
+                cwd: 'build',
+                src: '*.js',
+                dest: 'dist',
+            },
         },
         release: {
             options: {
@@ -156,8 +162,8 @@ module.exports = function(grunt) {
     //set the tasks / taskmaps
     grunt.registerTask('reportCoveralls', ['clean:coverage', 'mocha_istanbul:coverage', 'coveralls']);
     grunt.registerTask('coverage', ['clean:coverage', 'mocha_istanbul:coverage']);
-    grunt.registerTask('ci-build', ['clean:coverage', 'clean:dist', 'jshint:beforeconcat', 'mochaTest', 'documentation', 'reportCoveralls', 'concat', 'jshint:afterconcat', 'uglify', 'copy:conversionTables']);
-    grunt.registerTask('build', ['clean:dist', 'jshint:beforeconcat', 'mochaTest', 'documentation', 'concat', 'jshint:afterconcat', 'uglify', 'copy:conversionTables']);
+    grunt.registerTask('ci-build', ['clean:coverage', 'clean:dist', 'jshint:beforeconcat', 'mochaTest', 'documentation', 'reportCoveralls', 'concat', 'jshint:afterconcat', 'uglify', 'copy:main', 'copy:conversionTables']);
+    grunt.registerTask('build', ['clean:dist', 'jshint:beforeconcat', 'mochaTest', 'documentation', 'concat', 'jshint:afterconcat', 'uglify', 'copy:main', 'copy:conversionTables']);
     grunt.registerTask('test', ['clean:coverage', 'jshint', 'mochaTest', 'coverage']);
     grunt.registerTask('watch', ['watch']);
     grunt.registerTask('releaseToNPM', ['release']);
