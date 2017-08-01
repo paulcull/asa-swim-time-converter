@@ -28,7 +28,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 // the files to concatenate (exclue example)
-                src: ['src/**/*.js', '!src/conversionTables/*.js', '!src/example.js'],
+                src: ['src/**/*.js', '!src/conversionTables/*.js', '!src/exam*.js'],
                 // the location of the resulting JS file
                 dest: 'build/<%= pkg.name %>.js'
             }
